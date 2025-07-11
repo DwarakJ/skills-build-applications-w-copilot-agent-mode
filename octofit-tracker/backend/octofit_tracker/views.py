@@ -11,8 +11,8 @@ def api_root(request, format=None):
     host = request.get_host()
     from django.conf import settings
     api_suffix = settings.API_SUFFIX
-    if "reimagined-computing-machine-r6v4qvgvxv5fpgrx.app.github.dev" in host:
-        base_url = "https://reimagined-computing-machine-r6v4qvgvxv5fpgrx.app.github.dev/"
+    if "reimagined-computing-machine-r6v4qvgvxv5fpgrx-8000.app.github.dev" in host:
+        base_url = "https://reimagined-computing-machine-r6v4qvgvxv5fpgrx-8000.app.github.dev/"
     else:
         base_url = "http://localhost:8000/"
     return Response({
