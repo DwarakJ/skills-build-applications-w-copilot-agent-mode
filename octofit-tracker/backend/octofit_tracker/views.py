@@ -9,16 +9,18 @@ def api_root(request, format=None):
     if request.method == 'POST':
         return Response({"message": "POST request received"}, status=status.HTTP_201_CREATED)
     host = request.get_host()
+    from django.conf import settings
+    api_suffix = settings.API_SUFFIX
     if "reimagined-computing-machine-r6v4qvgvxv5fpgrx.app.github.dev" in host:
         base_url = "https://reimagined-computing-machine-r6v4qvgvxv5fpgrx.app.github.dev/"
     else:
         base_url = "http://localhost:8000/"
     return Response({
-        'users': base_url + 'api/users/',
-        'teams': base_url + 'api/teams/',
-        'activities': base_url + 'api/activities/',
-        'leaderboard': base_url + 'api/leaderboard/',
-        'workouts': base_url + 'api/workouts/'
+        'users': base_url + api_suffix + 'users/',
+        'teams': base_url + api_suffix + 'teams/',
+        'activities': base_url + api_suffix + 'activities/',
+        'leaderboard': base_url + api_suffix + 'leaderboard/',
+        'workouts': base_url + api_suffix + 'workouts/'
     })
 
 class UserViewSet(viewsets.ModelViewSet):

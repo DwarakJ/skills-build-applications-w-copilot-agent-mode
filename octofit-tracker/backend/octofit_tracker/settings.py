@@ -1,3 +1,5 @@
+# Django REST API endpoint suffix
+API_SUFFIX = "api/"
 """
 Django settings for octofit_tracker project.
 
